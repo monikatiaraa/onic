@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bag — Miu Miu</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">✦ Miu Miu</div>
+        <ul class="menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="My_Glasses.html" class="nav-link">Products</a></li>
+            <li><a href="About.html" class="nav-link">About</a></li>
+            <li><a href="Review.html" class="nav-link">Reviews</a></li>
+            <li><a href="Cart.html" class="nav-link cart-icon">🛒 <span class="cart-count" id="cartCount">0</span></a></li>        </ul>
+    </nav>
+
+    <section class="products-page">
+        <div class="page-header">
+            <p class="section-tag">✦ Accessories</p>
+            <h2>My Bags</h2>
+            <div class="sub-nav">
+                <a href="My_Glasses.html" class="sub-link">Glasses</a>
+                <a href="My_Bag.html" class="sub-link active">Bags</a>
+                <a href="My_Heels.html" class="sub-link">Heels</a>
+            </div>
+        </div>
+
+        <div class="product-grid">
+            <div class="card" data-name="Vivant nappa leather bag" data-price="33209000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BB/5BB200/2BBLF0638/5BB200_2BBL_F0638_V_OOO_SLR.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BB/5BB200/2BBLF0638/5BB200_2BBL_F0638_V_OOO_SLR.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Vivant nappa leather bag</h3>
+                    <p class="price">Rp33.209.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Shearling Top Handle Bag" data-price="44199000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BG/5BG291/2BBLF0NBL/5BG291_2BBL_F0NBL_V_OON_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BG/5BG291/2BBLF0NBL/5BG291_2BBL_F0NBL_V_OON_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Shearling Top Handle Bag</h3>
+                    <p class="price">Rp44.199.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Eco-Fur Backpack" data-price="36197000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BA/5BA281/2IH5F0008/5BA281_2IH5_F0008_V_OR1_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BA/5BA281/2IH5F0008/5BA281_2IH5_F0008_V_OR1_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Eco-Fur Backpack</h3>
+                    <p class="price">Rp36.197.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Leather Shoulder Bag" data-price="48990000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BA/5BA310/2IHVF0009/5BA310_2IHV_F0009_V_OR1_SLR.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BA/5BA310/2IHVF0009/5BA310_2IHV_F0009_V_OR1_SLR.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Leather Shoulder Bag</h3>
+                    <p class="price">Rp48.990.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Flap Chain Bag" data-price="36000000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BB/5BB173/ACRNF062F/5BB173_ACRN_F062F_V_OWM_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BB/5BB173/ACRNF062F/5BB173_ACRN_F062F_V_OWM_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Flap Chain Bag</h3>
+                    <p class="price">Rp36.000.000"</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Crystal Micro Bag" data-price="29709000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BC/5BC188/AF8TF0201/5BC188_AF8T_F0201_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BC/5BC188/AF8TF0201/5BC188_AF8T_F0201_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Crystal Micro Bag</h3>
+                    <p class="price">Rp29.709.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Satin Bow Bag" data-price="55999000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BG/5BG329/2IHWF0970/5BG329_2IHW_F0970_V_OR3_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BG/5BG329/2IHWF0970/5BG329_2IHW_F0970_V_OR3_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Satin Bow Bag</h3>
+                    <p class="price">Rp55.999.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Flap Chain Bag" data-price="66900000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BB/5BB197/AN88F0007/5BB197_AN88_F0007_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BB/5BB197/AN88F0007/5BB197_AN88_F0007_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Flap Chain Bag</h3>
+                    <p class="price">Rp66.900.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Crystal Micro Bag" data-price="49790000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5NE/5NE841/2IHDF017J/5NE841_2IHD_F017J_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5NE/5NE841/2IHDF017J/5NE841_2IHD_F017J_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Crystal Micro Bag</h3>
+                    <p class="price">Rp49.790.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Flap Chain Bag" data-price="37799000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BP/5BP088/AN88F0009/5BP088_AN88_F0009_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BP/5BP088/AN88F0009/5BP088_AN88_F0009_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Flap Chain Bag</h3>
+                    <p class="price">Rp37.799.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Crystal Micro Bag" data-price="49769000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BC/5BC125/2G7RF0316/5BC125_2G7R_F0316_V_MWN_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BC/5BC125/2G7RF0316/5BC125_2G7R_F0316_V_MWN_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Crystal Micro Bag</h3>
+                    <p class="price">Rp49.769.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Flap Chain Bag" data-price="26798000" data-img="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BG/5BG248/2DO3F04EM/5BG248_2DO3_F04EM_V_OR1_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BG/5BG248/2DO3F04EM/5BG248_2DO3_F04EM_V_OR1_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="card-body">
+                    <h3>Flap Chain Bag</h3>
+                    <p class="price">Rp26.798.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+    </section>
+
+    <div class="toast" id="toast">✦ Added to cart!</div>
+    <footer class="footer"><p>✦ Fashion Miu Miu &copy; 2026 — Unapologetically You</p></footer>
+    
+    <script>
+        document.getElementById('cartCount').textContent = JSON.parse(localStorage.getItem('cart') || '[]').length;
+
+        function addToCart(btn) {
+            var card = btn.closest('.card');
+            var item = { name: card.dataset.name, price: parseInt(card.dataset.price), img: card.dataset.img };
+            var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('cartCount').textContent = cart.length;
+            var toast = document.getElementById('toast');
+            if (toast) { toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2500); }
+        }
+    </script>
+</body>
+</html>

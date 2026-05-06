@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Miu Miu</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">✦ Miu Miu</div>
+        <ul class="menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="My_Glasses.html" class="nav-link">Products</a></li>
+            <li><a href="About.html" class="nav-link">About</a></li>
+            <li><a href="Review.html" class="nav-link">Reviews</a></li>
+            <li><a href="Cart.html" class="nav-link cart-icon">🛒 <span class="cart-count" id="cartCount">0</span></a></li>        </ul>
+    </nav>
+
+    <section class="about-page">
+        <div class="about-hero">
+            <div class="about-text-block">
+                <p class="section-tag">✦ The Miu Miu Spirit</p>
+                <h2>Definisi Baru dari<br><em>Feminitas Kontemporer</em></h2>
+                <p>Lahir dari visi kreatif Miuccia Prada pada tahun 1993, Miu Miu adalah perwujudan dari kebebasan berekspresi. Kami mengeksplorasi kontradiksi antara kesederhanaan dan kemewahan, menciptakan gaya yang unik bagi perempuan yang berani tampil beda.</p>
+                <p>Koleksi kami bukan sekadar fashion — mereka adalah narasi tentang kepercayaan diri, pesona intelektual, dan sisi provokatif yang halus. Di Miu Miu, fashion adalah taman bermain tanpa batas.</p>
+                <a href="My_Glasses.html" class="btn-primary">Explore Collection</a>
+            </div>
+            <div class="about-img-block">
+                <div class="about-img-frame">
+                    <img src="Latar Depan.jpeg" alt="Miu Miu">
+                </div>
+            </div>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <span class="val-icon">✦</span>
+                <h4>Unapologetic Style</h4>
+                <p>Fashion yang tidak meminta izin — berani, segar, dan selalu relevan.</p>
+            </div>
+            <div class="value-card">
+                <span class="val-icon">🌸</span>
+                <h4>Feminine Power</h4>
+                <p>Koleksi yang merayakan keberanian dan kelembutan secara bersamaan.</p>
+            </div>
+            <div class="value-card">
+                <span class="val-icon">💎</span>
+                <h4>Luxury Crafted</h4>
+                <p>Setiap detail dibuat dengan presisi dan cinta, untuk kamu yang tahu kualitas.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>✦ Fashion Miu Miu &copy; 2026 — Unapologetically You</p></footer>
+    <script>
+        document.getElementById('cartCount').textContent = JSON.parse(localStorage.getItem('cart') || '[]').length;
+    </script>
+</body>
+</html>

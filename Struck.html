@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Belanja — Miu Miu</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .receipt-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .receipt-wrapper {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .receipt-success-banner {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--rose), #ff6bb5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 16px;
+            box-shadow: 0 8px 28px rgba(200,0,110,0.35);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        .receipt-success-banner h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--dark);
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+
+        .receipt-success-banner p {
+            font-size: 14px;
+            color: var(--mid);
+        }
+
+        /* The Receipt Card */
+        .receipt-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 16px 56px rgba(200,0,110,0.12);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Zigzag top edge */
+        .receipt-card::before {
+            content: '';
+            display: block;
+            height: 16px;
+            background:
+                radial-gradient(circle at 12px -6px, transparent 12px, #fff 12px)
+                left top / 24px 16px repeat-x;
+            position: relative;
+            top: 0;
+        }
+
+        .receipt-header {
+            text-align: center;
+            padding: 4px 32px 24px;
+            border-bottom: 1.5px dashed var(--border);
+        }
+
+        .receipt-brand {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--rose);
+            letter-spacing: 3px;
+            font-style: italic;
+        }
+
+        .receipt-tagline {
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .receipt-no {
+            font-size: 11px;
+            color: #bbb;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        .receipt-info {
+            padding: 20px 32px;
+            border-bottom: 1.5px dashed var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .info-row label {
+            font-size: 10px;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .info-row span {
+            font-size: 14px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .receipt-items {
+            padding: 20px 32px;
+            border-bottom: 1.5px dashed var(--border);
+        }
+
+        .receipt-items-title {
+            font-size: 10px;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .receipt-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #fdf0f7;
+        }
+
+        .receipt-item:last-child { border-bottom: none; }
+
+        .receipt-item img {
+            width: 44px;
+            height: 44px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .receipt-item-name {
+            flex: 1;
+            font-size: 13px;
+            color: var(--dark);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .receipt-item-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--rose);
+            white-space: nowrap;
+        }
+
+        .receipt-totals {
+            padding: 20px 32px;
+            border-bottom: 1.5px dashed var(--border);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            font-size: 14px;
+            color: var(--mid);
+        }
+
+        .total-row.grand {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            padding-top: 12px;
+            margin-top: 6px;
+            border-top: 1px solid var(--border);
+        }
+
+        .total-row.grand span:last-child { color: var(--rose); }
+
+        .receipt-payment {
+            padding: 16px 32px;
+            border-bottom: 1.5px dashed var(--border);
+        }
+
+        .payment-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blush);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 13px;
+            color: var(--rose);
+            font-weight: 500;
+        }
+
+        .receipt-barcode {
+            text-align: center;
+            padding: 20px 32px 4px;
+        }
+
+        .barcode-lines {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 2px;
+            height: 50px;
+            margin-bottom: 8px;
+        }
+
+        .barcode-lines div {
+            background: var(--dark);
+            border-radius: 1px;
+        }
+
+        .barcode-text {
+            font-size: 10px;
+            color: #bbb;
+            letter-spacing: 4px;
+        }
+
+        /* Zigzag bottom edge */
+        .receipt-card::after {
+            content: '';
+            display: block;
+            height: 16px;
+            background:
+                radial-gradient(circle at 12px 22px, transparent 12px, #fff 12px)
+                left bottom / 24px 16px repeat-x;
+            position: relative;
+            bottom: 0;
+            transform: rotate(180deg);
+        }
+
+        .receipt-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .receipt-actions .btn-primary,
+        .receipt-actions .btn-ghost {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .empty-receipt {
+            text-align: center;
+            padding: 48px 32px;
+            color: var(--mid);
+        }
+
+        .empty-receipt p {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        @media print {
+            .navbar, .receipt-success-banner, .receipt-actions, .footer { display: none !important; }
+            .receipt-page { background: #fff; padding: 0; }
+            .receipt-wrapper { max-width: 100%; }
+            .receipt-card { box-shadow: none; }
+        }
+
+        @media (max-width: 480px) {
+            .receipt-info { grid-template-columns: 1fr; }
+            .receipt-header, .receipt-info, .receipt-items, .receipt-totals,
+            .receipt-payment, .receipt-barcode { padding-left: 20px; padding-right: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">✦ Miu Miu</div>
+        <ul class="menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="My_Glasses.html" class="nav-link">Products</a></li>
+            <li><a href="About.html" class="nav-link">About</a></li>
+            <li><a href="Review.html" class="nav-link">Reviews</a></li>
+            <li><a href="Cart.html" class="nav-link cart-icon">🛒 <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="receipt-page">
+        <div class="receipt-wrapper">
+
+            <div class="receipt-success-banner">
+                <div class="success-icon">🌸</div>
+                <h2>Order Confirmed!</h2>
+                <p>Terima kasih telah berbelanja di Miu Miu ✦</p>
+            </div>
+
+            <div class="receipt-card" id="receiptCard">
+                <div class="receipt-header">
+                    <div class="receipt-brand">✦ Miu Miu</div>
+                    <div class="receipt-tagline">Unapologetically You</div>
+                    <div class="receipt-no" id="receiptNo">— — —</div>
+                </div>
+
+                <div class="receipt-info" id="receiptInfo">
+                    <!-- filled by JS -->
+                </div>
+
+                <div class="receipt-items">
+                    <div class="receipt-items-title">Detail Pesanan</div>
+                    <div id="receiptItems">
+                        <!-- filled by JS -->
+                    </div>
+                </div>
+
+                <div class="receipt-totals" id="receiptTotals">
+                    <!-- filled by JS -->
+                </div>
+
+                <div class="receipt-payment" id="receiptPayment">
+                    <!-- filled by JS -->
+                </div>
+
+                <div class="receipt-barcode">
+                    <div class="barcode-lines" id="barcode"></div>
+                    <div class="barcode-text" id="barcodeText">— — —</div>
+                </div>
+            </div>
+
+            <div class="receipt-actions">
+                <button class="btn-ghost print-btn" onclick="window.print()">🖨️ Print Struk</button>
+                <a href="Review.html" class="btn-primary">Tulis Review ✦</a>
+                <a href="index.html" class="btn-ghost" style="flex:1;min-width:140px;text-align:center">🏠 Home</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer"><p>✦ Fashion Miu Miu &copy; 2026 — Unapologetically You</p></footer>
+
+    <script>
+        // Cart count (will be 0 after order, that's fine)
+        document.getElementById('cartCount').textContent = JSON.parse(localStorage.getItem('cart') || '[]').length;
+
+        function formatIDR(n) { return 'Rp' + n.toLocaleString('id-ID'); }
+
+        // Load order data saved at checkout
+        const order = JSON.parse(localStorage.getItem('miumiu_last_order') || 'null');
+
+        if (!order || !order.items || order.items.length === 0) {
+            // No order data — show fallback
+            document.getElementById('receiptInfo').innerHTML = '<div class="empty-receipt" style="grid-column:1/-1"><p>🌸 Tidak ada data pesanan.</p><a href="Index.html" class="btn-primary">Kembali ke Home</a></div>';
+            document.getElementById('receiptItems').innerHTML = '';
+            document.getElementById('receiptTotals').innerHTML = '';
+            document.getElementById('receiptPayment').innerHTML = '';
+        } else {
+            // Order number
+            const orderNo = 'MIU-' + Date.now().toString().slice(-8).toUpperCase();
+            document.getElementById('receiptNo').textContent = 'No. ' + orderNo;
+
+            // Barcode visual
+            const barcode = document.getElementById('barcode');
+            const pattern = [3,6,2,8,4,7,2,5,9,3,6,2,8,3,7,5,4,8,2,6,3,9,5,7,3,6,4,8];
+            barcode.innerHTML = pattern.map(h =>
+                `<div style="width:${Math.random()>0.5?2:3}px;height:${h*4+10}px;opacity:${0.7+Math.random()*0.3}"></div>`
+            ).join('');
+            document.getElementById('barcodeText').textContent = orderNo;
+
+            // Info
+            const paymentLabels = {
+                transfer: '🏦 Bank Transfer',
+                gopay: '💚 GoPay',
+                ovo: '💜 OVO',
+                dana: '💙 DANA',
+                cod: '💵 COD',
+                card: '💳 Credit/Debit Card'
+            };
+            const payLabel = paymentLabels[order.payment] || order.payment;
+            const dateStr = new Date().toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric' });
+            const timeStr = new Date().toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' });
+
+            document.getElementById('receiptInfo').innerHTML = `
+                <div class="info-row"><label>Nama</label><span>${order.name}</span></div>
+                <div class="info-row"><label>Tanggal</label><span>${dateStr}</span></div>
+                <div class="info-row"><label>Telepon</label><span>${order.phone || '-'}</span></div>
+                <div class="info-row"><label>Waktu</label><span>${timeStr}</span></div>
+                <div class="info-row" style="grid-column:1/-1"><label>Alamat Pengiriman</label><span>${order.address}${order.city ? ', ' + order.city : ''}${order.postal ? ' ' + order.postal : ''}</span></div>
+            `;
+
+            // Items
+            let subtotal = 0;
+            document.getElementById('receiptItems').innerHTML = order.items.map(item => {
+                subtotal += item.price;
+                return `
+                <div class="receipt-item">
+                    <img src="${item.img}" alt="${item.name}" onerror="this.style.display='none'">
+                    <div class="receipt-item-name">${item.name}</div>
+                    <div class="receipt-item-price">${formatIDR(item.price)}</div>
+                </div>`;
+            }).join('');
+
+            // Totals
+            document.getElementById('receiptTotals').innerHTML = `
+                <div class="total-row"><span>Subtotal (${order.items.length} item)</span><span>${formatIDR(subtotal)}</span></div>
+                <div class="total-row"><span>Ongkos Kirim</span><span style="color:#2e9e5a">Gratis ✦</span></div>
+                <div class="total-row grand"><span>Total</span><span>${formatIDR(subtotal)}</span></div>
+            `;
+
+            // Payment
+            document.getElementById('receiptPayment').innerHTML = `
+                <div style="margin-bottom:8px;font-size:11px;color:#bbb;text-transform:uppercase;letter-spacing:1.5px">Metode Pembayaran</div>
+                <div class="payment-badge">${payLabel}</div>
+                <div style="margin-top:12px;font-size:12px;color:var(--mid)">Status: <strong style="color:#2e9e5a">✓ Dikonfirmasi</strong></div>
+            `;
+        }
+    </script>
+</body>
+</html>

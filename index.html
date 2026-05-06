@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Miu Miu</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="brand">✦ Miu Miu</div>
+            <ul class="menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="My_Glasses.html" class="nav-link">Products</a></li>
+                <li><a href="About.html" class="nav-link">About</a></li>
+                <li><a href="Review.html" class="nav-link">Reviews</a></li>
+                <li><a href="Cart.html" class="nav-link cart-icon">🛒 <span class="cart-count" id="cartCount">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg-blob"></div>
+        <div class="hero-content">
+            <p class="hero-tag">✦ New Collection 2026 ✦</p>
+            <h1>Rich Collection<br><em>of Miu Miu</em></h1>
+            <p class="hero-desc">Manis, tajam, dan sepenuhnya autentik. Dari siluet ikonik hingga perpaduan tekstur yang kontras — ini bukan sekadar fashion, ini adalah sebuah sikap.</p>
+            <div class="hero-btns">
+                <a href="My_Glasses.html" class="btn-primary">Shop Now</a>
+                <a href="About.html" class="btn-ghost">Our Story</a>
+            </div>
+        </div>
+            <div class="about-img-block">
+                <div class="about-img-frame">
+                    <img src="Latar Depan.jpeg" alt="Miu Miu">
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Categories -->
+        <section class="products-page">
+        <div class="page-header">
+            <p class="section-tag">✦ Shop By Category</p>
+            <h2>Our Collections</h2>
+            <div class="sub-nav">
+                <a href="My_Glasses.html" class="sub-link">👓 Glasses</a>
+                <a href="My_Bag.html" class="sub-link">👜 Bags</a>
+                <a href="My_Heels.html" class="sub-link">👠 Heels</a>
+            </div>
+        </div>
+        <div class="cat-grid">
+            <a href="My_Glasses.html" class="cat-card">
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/S/SMU/SMUB50/S5AKFE08N/SMUB50_S5AK_FE08N_C_052_SLT.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Glasses"></div>
+                <div class="cat-label">Glasses</div>
+            </a>
+            <a href="My_Bag.html" class="cat-card">
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5BG/5BG291/2BBLF0NBL/5BG291_2BBL_F0NBL_V_OON_SLF.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Bag"></div>
+                <div class="cat-label">Bags</div>
+            </a>
+            <a href="My_Heels.html" class="cat-card">
+                <div class="card-img"><img src="https://www.miumiu.com/content/dam/miumiubkg_products/5/5I4/5I474E/XRYF0151/5I474E_XRY_F0151_F_105_SLR.jpg/_jcr_content/renditions/cq5dam.web.hE7E3DA.2000.2000.jpg" alt="Heels"></div>
+                <div class="cat-label">Heels</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>✦ Fashion Miu Miu &copy; 2026 — Unapologetically You</p>
+    </footer>
+
+    <script>
+        const count = JSON.parse(localStorage.getItem('cart') || '[]').length;
+        document.getElementById('cartCount').textContent = count;
+    </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Miu Miu</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">✦ Miu Miu</div>
+        <ul class="menu">
+            <li><a href="Index.html" class="nav-link">Home</a></li>
+            <li><a href="My_Glasses.html" class="nav-link">Products</a></li>
+            <li><a href="Cart.html" class="nav-link cart-icon">🛒 <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="checkout-page">
+        <div class="page-header">
+            <p class="section-tag">✦ Almost There!</p>
+            <h2>Checkout</h2>
+        </div>
+
+        <div class="checkout-layout">
+            <div class="checkout-form">
+                <div class="form-section">
+                    <h3>📦 Shipping Info</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="name" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" id="phone" placeholder="+62...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" id="address" placeholder="Full delivery address">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" id="city" placeholder="City">
+                        </div>
+                        <div class="form-group">
+                            <label>Postal Code</label>
+                            <input type="text" id="postal" placeholder="12345">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>💳 Payment Method</h3>
+                    <div class="payment-methods">
+                        <label class="pay-option">
+                            <input type="radio" name="payment" value="transfer" checked>
+                            <div class="pay-card selected">
+                                <span class="pay-icon">🏦</span>
+                                <div><strong>Bank Transfer</strong><p>BCA / Mandiri / BNI</p></div>
+                            </div>
+                        </label>
+                        <label class="pay-option">
+                            <input type="radio" name="payment" value="gopay">
+                            <div class="pay-card">
+                                <span class="pay-icon">💚</span>
+                                <div><strong>GoPay</strong><p>Via GoPay / GoSend</p></div>
+                            </div>
+                        </label>
+                        <label class="pay-option">
+                            <input type="radio" name="payment" value="ovo">
+                            <div class="pay-card">
+                                <span class="pay-icon">💜</span>
+                                <div><strong>OVO</strong><p>Via OVO App</p></div>
+                            </div>
+                        </label>
+                        <label class="pay-option">
+                            <input type="radio" name="payment" value="dana">
+                            <div class="pay-card">
+                                <span class="pay-icon">💙</span>
+                                <div><strong>DANA</strong><p>Via DANA App</p></div>
+                            </div>
+                        </label>
+                        <label class="pay-option">
+                            <input type="radio" name="payment" value="cod">
+                            <div class="pay-card">
+                                <span class="pay-icon">💵</span>
+                                <div><strong>COD</strong><p>Bayar di tempat</p></div>
+                            </div>
+                        </label>
+                        <label class="pay-option">
+                            <input type="radio" name="payment" value="card">
+                            <div class="pay-card">
+                                <span class="pay-icon">💳</span>
+                                <div><strong>Credit/Debit Card</strong><p>Visa / Mastercard</p></div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="payment-detail" id="detail-transfer">
+                        <div class="bank-info">
+                            <p><strong>BCA</strong> — 1234567890 a/n Fashion Miu Miu</p>
+                            <p><strong>Mandiri</strong> — 0987654321 a/n Fashion Miu Miu</p>
+                        </div>
+                    </div>
+                    <div class="payment-detail" id="detail-card" style="display:none">
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Expiry</label>
+                                <input type="text" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input type="text" placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary full" onclick="placeOrder()">✦ Place Order</button>
+            </div>
+
+            <div class="order-review">
+                <h3>🧾 Your Order</h3>
+                <div id="orderItems"></div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total"><span>Total</span><span id="orderTotal">Rp0</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal" style="display:none">
+        <div class="modal-box">
+            <div class="modal-icon">🌸</div>
+            <h3>Order Placed!</h3>
+            <p>Thank you! Your order is being processed.<br>We'll contact you shortly.</p>
+            <a href="Struck.html" class="btn-primary" style="margin-top:16px;display:inline-block">Lihat Struk Belanja ✦</a>
+        </div>
+    </div>
+
+    <footer class="footer"><p>✦ Fashion Miu Miu &copy; 2026 — Unapologetically You</p></footer>
+
+    <script>
+        function formatIDR(n) { return 'Rp' + n.toLocaleString('id-ID'); }
+
+        var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        document.getElementById('cartCount').textContent = cart.length;
+
+        // Render order summary
+        var total = 0;
+        document.getElementById('orderItems').innerHTML = cart.map(function(item) {
+            total += item.price;
+            return '<div class="order-item"><img src="' + item.img + '" onerror="this.style.display=\'none\'"><span>' + item.name + '</span><strong>' + formatIDR(item.price) + '</strong></div>';
+        }).join('') || '<p style="color:#b5a0a0;font-size:14px">No items in cart.</p>';
+        document.getElementById('orderTotal').textContent = formatIDR(total);
+
+        // Payment method toggle
+        document.querySelectorAll('input[name="payment"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.payment-detail').forEach(function(d) { d.style.display = 'none'; });
+                var detail = document.getElementById('detail-' + this.value);
+                if (detail) detail.style.display = 'block';
+                document.querySelectorAll('.pay-card').forEach(function(c) { c.classList.remove('selected'); });
+                this.closest('.pay-option').querySelector('.pay-card').classList.add('selected');
+            });
+        });
+
+        function placeOrder() {
+            var name    = document.getElementById('name').value.trim();
+            var phone   = document.getElementById('phone').value.trim();
+            var address = document.getElementById('address').value.trim();
+            var city    = document.getElementById('city').value.trim();
+            var postal  = document.getElementById('postal').value.trim();
+            var payEl   = document.querySelector('input[name="payment"]:checked');
+            var payment = payEl ? payEl.value : 'transfer';
+
+            if (!name || !address) {
+                alert('Mohon isi nama dan alamat pengiriman.');
+                return;
+            }
+            if (cart.length === 0) {
+                alert('Keranjang kamu kosong!');
+                return;
+            }
+
+            // Save order snapshot so Struck.html can read it
+            var orderData = {
+                name: name, phone: phone, address: address,
+                city: city, postal: postal, payment: payment,
+                items: cart, total: total,
+                date: new Date().toISOString()
+            };
+            localStorage.setItem('miumiu_last_order', JSON.stringify(orderData));
+            localStorage.removeItem('cart');
+            document.getElementById('cartCount').textContent = '0';
+
+            document.getElementById('successModal').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

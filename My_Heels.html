@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heels — Miu Miu</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">✦ Miu Miu</div>
+        <ul class="menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="My_Glasses.html" class="nav-link">Products</a></li>
+            <li><a href="About.html" class="nav-link">About</a></li>
+            <li><a href="Review.html" class="nav-link">Reviews</a></li>
+            <li><a href="Cart.html" class="nav-link cart-icon">🛒 <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="products-page">
+        <div class="page-header">
+            <p class="section-tag">✦ Footwear</p>
+            <h2>My Heels</h2>
+            <div class="sub-nav">
+                <a href="My_Glasses.html" class="sub-link">Glasses</a>
+                <a href="My_Bag.html" class="sub-link">Bags</a>
+                <a href="My_Heels.html" class="sub-link active">Heels</a>
+            </div>
+        </div>
+
+        <div class="product-grid">
+            <div class="card" data-name="Ballet Pink Heel" data-price="2059000" data-img="https://i.pinimg.com/1200x/fd/39/71/fd3971426e8675bebf61ceef65d09109.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/1200x/fd/39/71/fd3971426e8675bebf61ceef65d09109.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Ballet Pink Heel</h3>
+                    <p class="price">Rp2.059.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Satin Kitten" data-price="3949000" data-img="https://i.pinimg.com/1200x/30/22/a0/3022a09e432fa79007c9a7a6b6716cc3.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/1200x/30/22/a0/3022a09e432fa79007c9a7a6b6716cc3.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Satin Kitten</h3>
+                    <p class="price">Rp3.949.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Strappy Bow Heel" data-price="2139000" data-img="https://i.pinimg.com/736x/97/d5/90/97d590cead8b10a746790ca97900f0c0.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/736x/97/d5/90/97d590cead8b10a746790ca97900f0c0.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Strappy Bow Heel</h3>
+                    <p class="price">Rp2.139.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Mary Jane Lux" data-price="2890000" data-img="https://i.pinimg.com/736x/b6/37/59/b63759282aa4a69d346d0957b2ca8df3.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/736x/b6/37/59/b63759282aa4a69d346d0957b2ca8df3.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Mary Jane Lux</h3>
+                    <p class="price">Rp2.890.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Floral Mule" data-price="1999999" data-img="https://i.pinimg.com/736x/55/45/48/5545481a733d636871213d0b504d5404.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/736x/55/45/48/5545481a733d636871213d0b504d5404.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Floral Mule</h3>
+                    <p class="price">Rp1.999.999</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Block Pearl Heel" data-price="3109000" data-img="https://i.pinimg.com/1200x/9b/74/3f/9b743fe3688ac2832edefa6ce20369d9.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/1200x/9b/74/3f/9b743fe3688ac2832edefa6ce20369d9.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Block Pearl Heel</h3>
+                    <p class="price">Rp3.109.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Ballet Pink Heel Deluxe" data-price="1059000" data-img="https://i.pinimg.com/1200x/d8/75/fa/d875fa1ded559aac71da93a897ed4183.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/1200x/d8/75/fa/d875fa1ded559aac71da93a897ed4183.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Ballet Pink Heel</h3>
+                    <p class="price">Rp1.059.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+            <div class="card" data-name="Satin Kitten" data-price="3949000" data-img="https://i.pinimg.com/736x/65/06/b5/6506b56ed3b79925805d96c5c0d3ab04.jpg">
+                <span class="badge">New</span>
+                <div class="card-img"><img src="https://i.pinimg.com/736x/65/06/b5/6506b56ed3b79925805d96c5c0d3ab04.jpg" alt="Heels"></div>
+                <div class="card-body">
+                    <h3>Satin Kitten</h3>
+                    <p class="price">R3.p949.000</p>
+                    <button class="btn-cart" onclick="addToCart(this)">+ Add to Cart</button>
+                </div>
+            </div>
+    </div>
+    </section>
+    <div class="toast" id="toast">✦ Added to cart!</div>
+    <footer class="footer"><p>✦ Fashion Miu Miu &copy; 2026 — Unapologetically You</p></footer>
+    
+    <script>
+        document.getElementById('cartCount').textContent = JSON.parse(localStorage.getItem('cart') || '[]').length;
+
+        function addToCart(btn) {
+            var card = btn.closest('.card');
+            var item = { name: card.dataset.name, price: parseInt(card.dataset.price), img: card.dataset.img };
+            var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('cartCount').textContent = cart.length;
+            var toast = document.getElementById('toast');
+            if (toast) { toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2500); }
+        }
+    </script>
+</body>
+</html>
